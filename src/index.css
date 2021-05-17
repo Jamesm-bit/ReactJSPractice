@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+button.topButton {
+  background-color: transparent;
+  color: blue;
+  border-color: blue;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button.fNameButton {
+  background-color: green;
+  border-radius: 8px;
+  color: white;
+  visibility: visible;
+}
+button.lNameButton{
+  background-color: red;
+  border-radius: 8px;
+  color: white;
+  visibility: visible;
+}
+input {
+  margin: 3px;
+}
+#Add {
+  visibility: visible;
+}
+p {
+  display: inline-block;
+  width: 200px;
+  margin: 0ch;
+  border: 20px;
+  border-color: black;
+  border-radius: 8px;
+}
+#div1 {
+  display:flex;
+}
+.divhold {
+  display: flex;
+}
+#list {
+  max-width: 600px;
+}
+.checkdel {
+  visibility: visible;
+}
+.chk {
+  visibility: visible;
+}
+#selectedColorModify {
+  visibility: hidden;
+}
+#textSizeModify {
+  visibility: hidden;
+}
+#modifySelected {
+  visibility: hidden;
 }
