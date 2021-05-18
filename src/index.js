@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-let FNameVal = null;
-let LNameVal = null;
-let ColorVal = null;
+let fName = null;
+let lName = null;
+let Color = null;
 
 const dummyArray = [{fName: "J",lName:"M",color:"#ff6600"},{fName: "J",lName:"M",color:"#ff6600"},{fName: "J",lName:"M",color:"#ff6600"},{fName: "J",lName:"M",color:"#ff6600"},{fName: "J",lName:"M",color:"#ff6600"}]
 
@@ -19,7 +19,8 @@ class App extends React.Component {
 
   add = () => {
     const listOfNames = this.state.nameArray;
-    listOfNames.push({fName:FNameVal, lName:LNameVal, color:ColorVal})
+    console.log(listOfNames)
+    listOfNames.push({fName, lName, Color})
     document.getElementById("fname").value = "";
     document.getElementById("lname").value = "";
     document.getElementById("selectedColor").value = "";
@@ -27,15 +28,18 @@ class App extends React.Component {
   }
 
   handleOnChangeFName = (input) => {
-    FNameVal = input.target.value;
+    console.log(input.target.value);
+    fName = input.target.value;
   }
 
   handleOnChangeLName = (input) => {
-    LNameVal = input.target.value;
+    console.log(input.target.value);
+    lName = input.target.value;
   }
 
   handleOnChangeColor = (input) => {
-    ColorVal = input.target.value;
+    console.log(input.target.value);
+    Color = input.target.value;
   }
 
   handleSubmit(event) {
@@ -47,9 +51,9 @@ class App extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" id="fname" placeholder="First Name" required onChange={this.handleOnChangeFName} value="test"/>
-          <input type="text" id="lname" placeholder="Last Name" required onChange={this.handleOnChangeLName} value="test"/>
-          <input type="text" id="selectedColor" placeholder="#background color" required />
+          <input type="text" id="fname" placeholder="First Name" required onChange={this.handleOnChangeFName}/>
+          <input type="text" id="lname" placeholder="Last Name" required onChange={this.handleOnChangeLName}/>
+          <input type="text" id="selectedColor" placeholder="#background color" required onChange={this.handleOnChangeColor}/>
 
           <select id="textSize" placeholder="Text Size">
             <option value="Large">Large</option>
@@ -65,7 +69,7 @@ class App extends React.Component {
           {this.state.nameArray.map((item, index) => {
 
             let colorInput = {
-              color: item.color
+              color: item.Color
             }
 
             return (
@@ -74,8 +78,8 @@ class App extends React.Component {
                 <p className="innamef" id={"fNameID" + index} style={colorInput}>{item.fName}</p>
                 <p className='innamel' id={"lNameID" + index} style={colorInput}>{item.lName}</p>
                 <button className="fNameButton" onClick={() => {
-                  document.getElementById("fNameID"+index).innerHTML = FNameVal
-                  document.getElementById("lNameID"+index).innerHTML = LNameVal
+                  document.getElementById("fNameID"+index).innerHTML = fName
+                  document.getElementById("lNameID"+index).innerHTML = lName
                 }}>Edit</button>
                 <button className="lNameButton" onClick={() => {
                   let delobject = document.getElementById(index)
